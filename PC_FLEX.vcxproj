@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A6E30FC5-6E89-41F0-A461-1B61D57FF15F}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(XSISDK_ROOT)\mkfiles\Release-x64.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(XSISDK_ROOT)\mkfiles\Debug-x64.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\bin\nt-x86-64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\bin\nt-x86-64\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\bin\nt-x86-64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\bin\nt-x86-64\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>C:\Users\Pedro\Google Drive\CODE\C++\PC_CUSTOM_ICE_NODES\include\flex\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>.\bin\nt-x86-64\PC_FLEX.dll</OutputFile>
+      <AdditionalLibraryDirectories>C:\Users\Pedro\Google Drive\CODE\C++\PC_CUSTOM_ICE_NODES\include\flex\lib\win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>NvFlexDebugCUDA_x64.lib;NvFlexDebugD3D_x64.lib;NvFlexDeviceDebug_x64.lib;NvFlexExtDebugCUDA_x64.lib;NvFlexExtDebugD3D_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>C:\Users\Pedro\Dropbox\WORKGROUP\PEDRITO_TOOLS\Application\Plugins\PC_FLEX\flex\core;include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>.\bin\nt-x86-64\PC_FLEX.dll</OutputFile>
+      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>NvFlexDeviceRelease_x64.lib;NvFlexReleaseCUDA_x64.lib;NvFlexExtReleaseCUDA_x64.lib;NvFlexReleaseD3D_x64.lib;NvFlexExtReleaseD3D_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Cds\ASSETS\PC_FLEX.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_ADD_CLOTH.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_COLLIDER_GEO.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_COLLIDER_SHAPE.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_CREATE_ASSET.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_SET_SOLVER_PARAMS.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_SOLVER.cpp" />
+    <ClCompile Include="Cds\ASSETS\PC_FLEX_UPDATE_SOLVER.cpp" />
+    <ClCompile Include="FlexSystem.cpp" />
+    <ClCompile Include="PC_FLEX_GET_ASSET_DATA.cpp" />
+    <ClCompile Include="PC_FLEX_GET_DIFFUSE.cpp" />
+    <ClCompile Include="PC_FLEX_RIGID_BODY.cpp" />
+    <ClCompile Include="PC_FLEX_SOFTBODY.cpp" />
+    <ClCompile Include="PC_Get_Triangle_Indices.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FlexSystem.h" />
+    <ClInclude Include="Helpers.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
